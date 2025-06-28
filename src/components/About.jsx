@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import WOW from "wowjs";
+import "animate.css";
+
 import {
   FaTools,
   FaShieldAlt,
@@ -10,6 +14,10 @@ import { GiTechnoHeart, GiCoolSpices } from "react-icons/gi";
 import aboutImage from "../assets/ac-service.jpg";
 
 const About = () => {
+  useEffect(() => {
+    new WOW.WOW({ live: false }).init();
+  }, []);
+
   return (
     <section
       id="about"
@@ -24,7 +32,10 @@ const About = () => {
       <div className="relative container mx-auto px-6 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
           {/* Left Image with Badge */}
-          <div className="relative group">
+          <div
+            className="relative group wow animate__animated animate__fadeInLeft"
+            data-wow-delay="0.2s"
+          >
             <div className="absolute -inset-4 bg-gradient-to-r from-teal-500 to-orange-500 rounded-3xl opacity-25 group-hover:opacity-40 transition duration-500" />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-teal-100/40">
               <img
@@ -32,7 +43,6 @@ const About = () => {
                 alt="Karnika AC Services"
                 className="w-full h-full object-cover min-h-[300px] max-h-[600px] rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
               />
-
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-teal-900/80 to-transparent p-5 sm:p-6">
                 <div className="flex items-center gap-4">
                   <GiTechnoHeart className="text-3xl text-orange-300" />
@@ -46,13 +56,19 @@ const About = () => {
           </div>
 
           {/* Right Content */}
-          <div>
+          <div
+            className="wow animate__animated animate__fadeInRight"
+            data-wow-delay="0.4s"
+          >
             <div className="inline-flex items-center gap-3 mb-6 px-5 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white text-sm font-semibold rounded-full shadow-lg">
               <GiCoolSpices className="text-lg" />
               WHY WE'RE DIFFERENT
             </div>
 
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-5 leading-tight tracking-tight">
+            <h2
+              className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-5 leading-tight tracking-tight wow animate__animated animate__fadeInDown"
+              data-wow-delay="0.5s"
+            >
               Premium{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-orange-500">
                 AC Solutions
@@ -60,7 +76,10 @@ const About = () => {
               in Noida
             </h2>
 
-            <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl">
+            <p
+              className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl wow animate__animated animate__fadeInUp"
+              data-wow-delay="0.6s"
+            >
               Karnika AC Services delivers expert cooling & heating care with
               certified professionals, advanced tools, and a commitment to your
               comfort and satisfaction.
@@ -96,7 +115,8 @@ const About = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="group bg-white p-6 rounded-2xl shadow-md border border-teal-100/50 hover:shadow-xl transition duration-300 transform hover:scale-105"
+                  className={`group bg-white p-6 rounded-2xl shadow-md border border-teal-100/50 hover:shadow-xl transition duration-300 transform hover:scale-105 wow animate__animated animate__fadeInUp`}
+                  data-wow-delay={`${0.7 + i * 0.2}s`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-lg shadow-sm ${item.bg}`}>
@@ -112,7 +132,10 @@ const About = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-fit">
+            <div
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-fit wow animate__animated animate__zoomIn"
+              data-wow-delay="1.6s"
+            >
               <a
                 href="tel:+919910498203"
                 className="group flex items-center justify-center gap-3 w-full sm:w-auto bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white font-semibold px-6 py-4 rounded-xl text-lg shadow-lg hover:shadow-teal-500/50 transition-all transform hover:scale-105"
@@ -133,7 +156,10 @@ const About = () => {
             </div>
 
             {/* Optional Trust Note */}
-            <p className="mt-4 text-sm text-gray-500">
+            <p
+              className="mt-4 text-sm text-gray-500 wow animate__animated animate__fadeIn"
+              data-wow-delay="1.8s"
+            >
               💬 Our support team usually responds within{" "}
               <span className="font-semibold text-teal-600">5 minutes</span>{" "}
               during working hours.
@@ -142,7 +168,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Custom Float Animations */}
+      {/* Float Animations */}
       <style jsx>{`
         @keyframes float {
           0% {

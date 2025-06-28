@@ -1,4 +1,7 @@
 import { FaRegCalendarCheck, FaTools, FaTruck } from "react-icons/fa";
+import AOS from "aos";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
 
 const steps = [
   {
@@ -7,6 +10,7 @@ const steps = [
     ),
     title: "Request a Free Consultation",
     description: "Tell us your AC needs—absolutely no obligation!",
+    aos: "fade-up-right",
   },
   {
     icon: (
@@ -14,6 +18,7 @@ const steps = [
     ),
     title: "Get Recommendations & Estimate",
     description: "We provide customized AC service options and fair pricing.",
+    aos: "zoom-in",
   },
   {
     icon: (
@@ -22,10 +27,19 @@ const steps = [
     title: "We Deliver & Install",
     description:
       "Our experts will install, repair, or maintain your AC quickly & professionally.",
+    aos: "fade-up-left",
   },
 ];
 
 const Process = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
+
   return (
     <section
       id="process"
@@ -39,7 +53,7 @@ const Process = () => {
 
       <div className="relative container mx-auto px-6 z-10">
         {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
           <span className="inline-block mb-4 px-5 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white text-sm font-semibold rounded-full shadow-lg">
             OUR SIMPLE PROCESS
           </span>
@@ -65,6 +79,7 @@ const Process = () => {
                 className={`group relative z-10 flex flex-col md:flex-row items-center ${
                   index % 2 !== 0 ? "md:flex-row-reverse" : ""
                 }`}
+                data-aos={step.aos}
               >
                 {/* Content Card */}
                 <div className="md:w-1/2 p-4">
@@ -96,7 +111,7 @@ const Process = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center" data-aos="zoom-in">
           <a
             href="tel:+919910492803"
             className="group inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-teal-500/50 transition-all transform hover:scale-105"

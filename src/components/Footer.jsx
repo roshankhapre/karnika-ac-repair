@@ -151,10 +151,10 @@ const Footer = () => {
                 <div>
                   <p className="text-teal-100 font-medium">Email</p>
                   <a
-                    href="mailto:info@karnikaac.com"
+                    href="mailto:karnikaaircoolservice711@gmail.com"
                     className="text-teal-200 hover:text-orange-400 transition"
                   >
-                    info@karnikaac.com
+                    karnikaaircoolservice711@gmail.com
                   </a>
                 </div>
               </li>
@@ -169,10 +169,11 @@ const Footer = () => {
                 <FaMapMarkerAlt className="text-teal-400 mt-1 group-hover:text-orange-400 transition" />
                 <div>
                   <p className="text-teal-100 font-medium">Our Location</p>
-                  <p className="text-teal-200">
-                    Budh Vihar, Bahrampur, Nai Basti Dundahera, Ghaziabad, UP
-                    201009
-                  </p>
+                 <p className="text-teal-200">
+  Gali No. 16, near Noida Commercial Co-operative Bank,<br />
+  Chajarsi, Sector 63, Noida – 201301, Uttar Pradesh
+</p>
+
                 </div>
               </li>
               <li className="group flex items-start gap-3">
@@ -200,14 +201,14 @@ const Footer = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+919910498203"
+                href="tel:+919910492803"
                 className="group flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-teal-600 font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-teal-500/50 transition-all transform hover:scale-105"
               >
                 <FaPhoneAlt className="text-xl group-hover:animate-pulse" />
                 Call Now
               </a>
               <a
-                href="https://wa.me/919910498203"
+                href="https://wa.me/919910492803"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-orange-500/50 transition-all transform hover:scale-105"

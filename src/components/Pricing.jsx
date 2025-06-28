@@ -1,11 +1,8 @@
-import {
-  FaTools,
-  FaRupeeSign,
-  FaCalendarAlt,
-  FaWhatsapp,
-  FaPhoneAlt,
-} from "react-icons/fa";
+import { FaTools, FaRupeeSign, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { GiCoolSpices } from "react-icons/gi";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const services = [
   {
@@ -83,12 +80,22 @@ const services = [
 ];
 
 const Pricing = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      offset: 80,
+      once: true,
+      easing: "ease-out",
+      delay: 100,
+    });
+  }, []);
+
   return (
     <section
       id="pricing"
       className="relative py-20 bg-gradient-to-b from-teal-50 to-white overflow-hidden"
     >
-      {/* Decorative Background Blobs */}
+      {/* Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-10 left-20 w-72 h-72 bg-teal-400 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-orange-400 rounded-full filter blur-3xl"></div>
@@ -96,7 +103,11 @@ const Pricing = () => {
 
       <div className="relative container mx-auto px-6 z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div
+          className="text-center mb-16 max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <div className="inline-flex items-center gap-3 mb-4 px-5 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white text-sm font-semibold rounded-full shadow-lg">
             <GiCoolSpices className="text-lg" />
             TRANSPARENT PRICING
@@ -122,15 +133,14 @@ const Pricing = () => {
                   ? "border-2 border-orange-400"
                   : "border border-teal-100/50"
               }`}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
-              {/* Popular Badge */}
               {service.popular && (
                 <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                   MOST POPULAR
                 </div>
               )}
-
-              {/* Gradient Overlay */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${
                   service.popular
@@ -140,7 +150,6 @@ const Pricing = () => {
               ></div>
 
               <div className="relative p-6">
-                {/* Service Name and Icon */}
                 <div className="flex items-center gap-4 mb-4">
                   <div
                     className={`p-3 rounded-lg ${
@@ -156,7 +165,6 @@ const Pricing = () => {
                   </h3>
                 </div>
 
-                {/* Price */}
                 <div className="mb-6">
                   <div className="flex items-center gap-1">
                     <FaRupeeSign
@@ -171,7 +179,6 @@ const Pricing = () => {
                   <p className="text-gray-500 text-sm mt-1">{service.type}</p>
                 </div>
 
-                {/* Features */}
                 <ul className="space-y-3 mb-8">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
@@ -185,7 +192,6 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
                 <a
                   href="tel:+919910492803"
                   className={`block text-center py-3 px-6 rounded-xl font-semibold transition-all transform hover:scale-105 ${
@@ -202,7 +208,11 @@ const Pricing = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gradient-to-r from-teal-500 to-orange-500 rounded-2xl p-8 text-center shadow-xl">
+        <div
+          className="mt-12 bg-gradient-to-r from-teal-500 to-orange-500 rounded-2xl p-8 text-center shadow-xl"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
           <h3 className="text-2xl font-bold text-white mb-4">
             Need a Custom Solution?
           </h3>
@@ -229,21 +239,6 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };

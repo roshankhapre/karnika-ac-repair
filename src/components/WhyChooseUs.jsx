@@ -9,8 +9,15 @@ import {
   FaSmile,
 } from "react-icons/fa";
 import { GiTechnoHeart, GiCoolSpices } from "react-icons/gi";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const WhyChooseUs = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const features = [
     {
       title: "Lightning Fast Response",
@@ -18,6 +25,7 @@ const WhyChooseUs = () => {
         "90% of service calls responded within 2 hours - we know you can't wait in the heat.",
       icon: <FaBolt className="text-3xl" />,
       color: "from-teal-500 to-orange-500",
+      animation: "fade-up-right",
     },
     {
       title: "No Hidden Costs",
@@ -25,6 +33,7 @@ const WhyChooseUs = () => {
         "Upfront pricing with 100% transparency. Pay only for what you need.",
       icon: <FaRupeeSign className="text-3xl" />,
       color: "from-orange-500 to-teal-500",
+      animation: "flip-left",
     },
     {
       title: "Complete Home Service",
@@ -32,12 +41,14 @@ const WhyChooseUs = () => {
         "Fully equipped mobile units arrive ready to fix any AC issue on the spot.",
       icon: <FaHome className="text-3xl" />,
       color: "from-teal-500 to-blue-500",
+      animation: "fade-up-left",
     },
     {
       title: "Certified Experts",
       description: "Manufacturer-trained technicians for all major AC brands.",
       icon: <FaUserShield className="text-3xl" />,
       color: "from-orange-500 to-indigo-500",
+      animation: "zoom-in",
     },
     {
       title: "Premium Parts",
@@ -45,6 +56,7 @@ const WhyChooseUs = () => {
         "We use only OEM or higher-grade components for lasting repairs.",
       icon: <FaTools className="text-3xl" />,
       color: "from-teal-500 to-cyan-500",
+      animation: "flip-right",
     },
     {
       title: "24/7 Availability",
@@ -52,6 +64,7 @@ const WhyChooseUs = () => {
         "Emergency services available round the clock, 365 days a year.",
       icon: <FaClock className="text-3xl" />,
       color: "from-orange-500 to-amber-500",
+      animation: "fade-up",
     },
     {
       title: "Satisfaction Guarantee",
@@ -59,6 +72,7 @@ const WhyChooseUs = () => {
         "If you're not happy, we'll make it right - no questions asked.",
       icon: <FaSmile className="text-3xl" />,
       color: "from-teal-500 to-green-500",
+      animation: "flip-up",
     },
     {
       title: "Extended Warranty",
@@ -66,6 +80,7 @@ const WhyChooseUs = () => {
         "All repairs come with our industry-leading 2-year warranty.",
       icon: <FaShieldAlt className="text-3xl" />,
       color: "from-orange-500 to-blue-500",
+      animation: "zoom-in-up",
     },
   ];
 
@@ -82,7 +97,10 @@ const WhyChooseUs = () => {
 
       <div className="relative container mx-auto px-6 z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div
+          className="text-center mb-16 max-w-3xl mx-auto"
+          data-aos="fade-down"
+        >
           <div className="inline-flex items-center gap-3 mb-4 px-5 py-2 bg-gradient-to-r from-teal-500 to-orange-500 rounded-full text-white text-sm font-semibold shadow-lg">
             <GiTechnoHeart className="text-lg" />
             WHY WE STAND OUT
@@ -104,7 +122,9 @@ const WhyChooseUs = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative group overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="relative group overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
+              data-aos={feature.animation}
+              data-aos-delay={index * 100}
             >
               {/* Gradient Hover Overlay */}
               <div
@@ -136,7 +156,10 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-16 flex flex-wrap justify-center gap-6">
+        <div
+          className="mt-16 flex flex-wrap justify-center gap-6"
+          data-aos="fade-up"
+        >
           <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-lg shadow-sm border border-teal-100">
             <GiCoolSpices className="text-2xl text-teal-500" />
             <span className="font-medium text-gray-700">
@@ -155,21 +178,6 @@ const WhyChooseUs = () => {
           </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };

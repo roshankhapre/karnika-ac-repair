@@ -2,6 +2,9 @@ import { FaUsers, FaTools, FaCheckCircle, FaPhoneAlt } from "react-icons/fa";
 import { GiCoolSpices } from "react-icons/gi";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const stats = [
   {
@@ -11,6 +14,7 @@ const stats = [
     title: "Happy Clients",
     value: 500,
     suffix: "+",
+    animation: "fade-right",
   },
   {
     icon: (
@@ -19,6 +23,7 @@ const stats = [
     title: "AC Installations",
     value: 250,
     suffix: "+",
+    animation: "zoom-in",
   },
   {
     icon: (
@@ -27,6 +32,7 @@ const stats = [
     title: "Repairs Completed",
     value: 800,
     suffix: "+",
+    animation: "fade-left",
   },
 ];
 
@@ -35,6 +41,10 @@ const TrustFactors = () => {
     triggerOnce: true,
     threshold: 0.3,
   });
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
     <section
@@ -50,7 +60,7 @@ const TrustFactors = () => {
 
       <div className="relative container mx-auto px-6 z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
           <div className="inline-flex items-center gap-3 mb-4 px-5 py-2 bg-gradient-to-r from-teal-500 to-orange-500 text-white text-sm font-semibold rounded-full shadow-lg">
             <GiCoolSpices className="text-lg" />
             <span>TRUSTED BY THOUSANDS</span>
@@ -72,6 +82,8 @@ const TrustFactors = () => {
             <div
               key={index}
               className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-100"
+              data-aos={stat.animation}
+              data-aos-delay={index * 100}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl"></div>
 
@@ -90,7 +102,7 @@ const TrustFactors = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-14 text-center">
+        <div className="mt-14 text-center" data-aos="zoom-in-up">
           <a
             href="tel:+919910498203"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-orange-300/50 transition-all transform hover:scale-105"

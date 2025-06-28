@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { WOW } from "wowjs";
 
 import "animate.css";
 
@@ -16,7 +15,9 @@ import aboutImage from "../assets/ac-service.jpg";
 
 const About = () => {
   useEffect(() => {
-    new WOW({ live: false }).init();
+    import("wowjs").then((module) => {
+      new module.WOW({ live: false }).init();
+    });
   }, []);
 
   return (

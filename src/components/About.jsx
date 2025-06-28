@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import WOW from "wowjs";
+import { WOW } from "wowjs";
+
 import "animate.css";
 
 import {

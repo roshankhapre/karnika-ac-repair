@@ -16,7 +16,7 @@ import aboutImage from "../assets/ac-service.jpg";
 
 const About = () => {
   useEffect(() => {
-    new WOW.WOW({ live: false }).init();
+    new WOW({ live: false }).init();
   }, []);
 
   return (

@@ -64,28 +64,6 @@ const Services = () => {
       image: indoorquality, // Replace with specific image, e.g., ../assets/indoor-quality.jpg
       features: ["Allergy reduction", "Odor elimination", "Virus protection"],
     },
-    {
-      title: "Furnace Installation",
-      description:
-        "Professional furnace installation for efficient and reliable heating.",
-      icon: <FaFireAlt className="text-2xl" />,
-      color: "from-teal-500 to-amber-500",
-      image: furnanceInstallation, // Replace with specific image, e.g., ../assets/furnace-installation.jpg
-      features: [
-        "Energy-efficient models",
-        "Safety inspections",
-        "Free consultation",
-      ],
-    },
-    {
-      title: "Furnace/Boiler Repair",
-      description:
-        "Expert repairs for furnaces and boilers to keep your home warm.",
-      icon: <GiHeatHaze className="text-2xl" />,
-      color: "from-orange-500 to-indigo-500",
-      image: boilerRepair, // Replace with specific image, e.g., ../assets/furnace-boiler-repair.jpg
-      features: ["24/7 emergency repairs", "Parts warranty", "Safety checks"],
-    },
   ];
 
   return (
@@ -95,8 +73,8 @@ const Services = () => {
     >
       {/* Decorative Background Blobs */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-10 left-20 w-72 h-72 bg-teal-400 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-orange-400 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-1 left-2 w-96 h-96 bg-red-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-900 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="relative container mx-auto px-6 z-10">
@@ -117,7 +95,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={index}

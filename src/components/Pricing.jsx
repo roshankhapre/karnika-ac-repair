@@ -53,7 +53,7 @@ const services = [
       "R22/R32 gas",
       "Leak testing",
       "Pressure check",
-      "6-month warranty",
+      "3-month warranty",
     ],
   },
   {
@@ -65,7 +65,7 @@ const services = [
       "R22/R32 gas",
       "Vacuum pump",
       "Full diagnostics",
-      "6-month warranty",
+      "3-month warranty",
     ],
   },
   {

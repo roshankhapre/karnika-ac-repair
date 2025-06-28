@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 const stats = [
   {
     icon: (
-      <FaUsers className="text-3xl text-teal-500 group-hover:text-orange-500 transition-colors" />
+      <FaUsers className="text-4xl text-teal-500 group-hover:text-orange-500 transition-colors" />
     ),
     title: "Happy Clients",
     value: 500,
@@ -14,7 +14,7 @@ const stats = [
   },
   {
     icon: (
-      <FaTools className="text-3xl text-orange-500 group-hover:text-teal-500 transition-colors" />
+      <FaTools className="text-4xl text-orange-500 group-hover:text-teal-500 transition-colors" />
     ),
     title: "AC Installations",
     value: 250,
@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: (
-      <FaCheckCircle className="text-3xl text-teal-500 group-hover:text-orange-500 transition-colors" />
+      <FaCheckCircle className="text-4xl text-teal-500 group-hover:text-orange-500 transition-colors" />
     ),
     title: "Repairs Completed",
     value: 800,
@@ -32,8 +32,8 @@ const stats = [
 
 const TrustFactors = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Count only once when section comes into view
-    threshold: 0.3, // Trigger when 30% of the section is visible
+    triggerOnce: true,
+    threshold: 0.3,
   });
 
   return (
@@ -42,10 +42,10 @@ const TrustFactors = () => {
       className="relative py-20 bg-gradient-to-b from-teal-50 to-white overflow-hidden"
       ref={ref}
     >
-      {/* Decorative Blobs */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-10 left-20 w-72 h-72 bg-teal-400 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-orange-400 rounded-full filter blur-3xl"></div>
+      {/* Decorative Background Blobs */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-teal-300 rounded-full blur-3xl mix-blend-multiply opacity-40 animate-float"></div>
+        <div className="absolute -bottom-10 right-0 w-96 h-96 bg-orange-300 rounded-full blur-3xl mix-blend-multiply opacity-40 animate-float delay-200"></div>
       </div>
 
       <div className="relative container mx-auto px-6 z-10">
@@ -55,7 +55,7 @@ const TrustFactors = () => {
             <GiCoolSpices className="text-lg" />
             <span>TRUSTED BY THOUSANDS</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             Why Customers{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-orange-500">
               Trust Us
@@ -71,12 +71,11 @@ const TrustFactors = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-teal-100/50"
+              className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-100"
             >
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl"></div>
 
-              <div className="relative z-10">
+              <div className="relative z-10 text-center">
                 <div className="mb-4">{stat.icon}</div>
                 <h3 className="text-4xl font-extrabold text-gray-800">
                   {inView ? <CountUp end={stat.value} duration={2} /> : 0}
@@ -91,10 +90,10 @@ const TrustFactors = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a
             href="tel:+919910498203"
-            className="group inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-teal-500/50 transition-all transform hover:scale-105"
+            className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-500 to-orange-500 hover:from-teal-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-orange-300/50 transition-all transform hover:scale-105"
           >
             <FaPhoneAlt className="text-xl group-hover:animate-pulse" />
             Book Your Service Now
@@ -106,14 +105,18 @@ const TrustFactors = () => {
       <style jsx="true">{`
         @keyframes float {
           0% {
-            transform: translateY(0);
+            transform: translateY(0px);
           }
           50% {
-            transform: translateY(-10px);
+            transform: translateY(-20px);
           }
           100% {
-            transform: translateY(0);
+            transform: translateY(0px);
           }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
         }
       `}</style>
     </section>

@@ -5,13 +5,16 @@ import {
   FaPhoneAlt,
   FaShieldAlt,
   FaClock,
+  FaWrench,
+  FaCubes,
 } from "react-icons/fa";
 import { GiCoolSpices } from "react-icons/gi";
-import heroImage from "../assets/repairman-doing-air-conditioner-service.jpg";
 import acrepair from "../assets/air_conditioner_installation_professional_installation_of_window_split.webp";
 import acreinstall from "../assets/air_conditioner_repair_expert_diagnostics_and_repair_for.webp";
 import HVAC from "../assets/hvac_maintenance_comprehensive_maintenance_for_heating_and (1).webp";
 import indoorquality from "../assets/indoor_quality_advanced_air_purification_and_ventilation_solutions.webp";
+import coldRoomInstall from "../assets/cold-room-installation.webp";
+import coldRoomRepair from "../assets/cold-room-repair.webp";
 
 const Services = () => {
   const services = [
@@ -59,6 +62,32 @@ const Services = () => {
       image: indoorquality,
       features: ["Allergy reduction", "Odor elimination", "Virus protection"],
     },
+    {
+      title: "Cold Room Installation",
+      description:
+        "Expert cold room setup tailored to your business needs with temperature precision.",
+      icon: <FaCubes className="text-2xl" />,
+      color: "from-indigo-500 to-cyan-500",
+      image: coldRoomInstall,
+      features: [
+        "Energy-efficient design",
+        "Custom dimensions",
+        "Temperature control",
+      ],
+    },
+    {
+      title: "Cold Room Repairing",
+      description:
+        "Quick diagnostics and repair to minimize downtime and protect your inventory.",
+      icon: <FaWrench className="text-2xl" />,
+      color: "from-cyan-500 to-indigo-500",
+      image: coldRoomRepair,
+      features: [
+        "Fast fault detection",
+        "Certified technicians",
+        "24/7 emergency support",
+      ],
+    },
   ];
 
   return (
@@ -90,7 +119,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -174,7 +203,9 @@ const Services = () => {
           >
             <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-lg shadow-sm border border-teal-100">
               <FaShieldAlt className="text-xl text-teal-500" />
-              <span className="font-medium text-gray-700">1-Year Warranty</span>
+              <span className="font-medium text-gray-700">
+                1-Year Warranty
+              </span>
             </div>
             <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-lg shadow-sm border border-teal-100">
               <GiCoolSpices className="text-xl text-orange-500" />

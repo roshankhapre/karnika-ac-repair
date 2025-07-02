@@ -47,8 +47,9 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Location</h4>
                   <p>
-                    Budh Vihar, Bahrampur, Nai Basti Dundahera, Ghaziabad, UP –
-                    201009
+                    Gali No. 16, near Noida Commercial Co-operative Bank,
+                    <br />
+                    Chajarsi, Sector 63, Noida – 201301, Uttar Pradesh
                   </p>
                 </div>
               </div>
